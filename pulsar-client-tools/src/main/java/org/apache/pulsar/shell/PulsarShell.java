@@ -227,10 +227,9 @@ public class PulsarShell {
                 .signalHandler(signal -> {
                     if (signal == Terminal.Signal.INT || signal == Terminal.Signal.QUIT) {
                         if (execState == ExecState.RUNNING) {
-                            throw new InterruptShellException();
-                        } else {
-                            exit(0);
+                            System.out.println("Ctrl+C Pressed, Exiting the command.");
                         }
+                        exit(0);
                     }
                 })
                 .build();
