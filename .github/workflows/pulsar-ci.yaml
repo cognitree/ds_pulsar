@@ -175,7 +175,7 @@ jobs:
       GRADLE_ENTERPRISE_ACCESS_KEY: ${{ secrets.GE_ACCESS_TOKEN }}
     runs-on: ubuntu-22.04
     timeout-minutes: ${{ matrix.timeout || 60 }}
-    needs: ['preconditions']
+    needs: ['preconditions', 'build-and-license-check']
     if: ${{ needs.preconditions.outputs.docs_only != 'true' }}
     strategy:
       fail-fast: false
