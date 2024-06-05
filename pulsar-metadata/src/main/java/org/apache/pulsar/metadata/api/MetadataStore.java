@@ -143,18 +143,6 @@ public interface MetadataStore extends AutoCloseable {
                 });
     }
 
-    default CompletableFuture<Void> deleteRecursiveIfExists(String path) {
-        return deleteRecursive(path)
-                .exceptionally(e -> {
-                    if (e.getCause() instanceof NotFoundException) {
-                        LOGGER.info("Path {} not found while deleting (this is not a problem)", path);
-                        return null;
-                    } else {
-                        throw new CompletionException(e);
-                    }
-                });
-    }
-
     /**
      * Delete a key-value pair and all the children nodes.
      *
