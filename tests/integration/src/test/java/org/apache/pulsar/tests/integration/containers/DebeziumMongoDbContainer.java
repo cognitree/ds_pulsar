@@ -29,8 +29,8 @@ public class DebeziumMongoDbContainer extends ChaosContainer<DebeziumMongoDbCont
 
     public DebeziumMongoDbContainer(String clusterName) {
         super(clusterName, IMAGE_NAME);
-        this.withEnv("MONGODB_USER", "debezium");
-        this.withEnv("MONGODB_PASSWORD", "dbz");
+        this.withEnv("MONGODB_USER", "mongodb");
+        this.withEnv("MONGODB_PASSWORD", "mongodb");
     }
     @Override
     public String getContainerName() {
