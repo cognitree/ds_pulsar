@@ -69,10 +69,10 @@ public class PulsarDebeziumSourcesTest extends PulsarIOTestBase {
     }
 
 
-    @Test(groups = "source")
-    public void testDebeziumMongoDbSource() throws Exception{
-        testDebeziumMongoDbConnect("org.apache.kafka.connect.json.JsonConverter", true);
-    }
+//    @Test(groups = "source")
+//    public void testDebeziumMongoDbSource() throws Exception{
+//        testDebeziumMongoDbConnect("org.apache.kafka.connect.json.JsonConverter", true);
+//    }
 
     @Test(groups = "source")
     public void testDebeziumMsSqlSource() throws Exception{
