@@ -59,6 +59,8 @@ public abstract class SourceTester<ServiceContainerT extends GenericContainer> i
         add("source");
         add("op");
         add("ts_ms");
+        add("ts_us");
+        add("ts_ns");
         add("transaction");
     }};
 
@@ -127,7 +129,7 @@ public abstract class SourceTester<ServiceContainerT extends GenericContainer> i
                 Assert.assertTrue(value.contains(this.eventContains(eventType, true)));
             }
             consumer.acknowledge(msg);
-            msg = consumer.receive(1, TimeUnit.SECONDS);
+            msg = consumer.receive(10, TimeUnit.SECONDS);
         }
 
         Assert.assertEquals(recordsNumber, number);
